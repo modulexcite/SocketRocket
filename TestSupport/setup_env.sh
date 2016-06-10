@@ -27,9 +27,10 @@ else
 
   python $VIRTUALENV_PATH/virtualenv-$VIRTUALENV_VERSION/virtualenv.py $VIRTUALENV_PATH
 
+  virtualenv $VIRTUALENV_PATH
   source $VIRTUALENV_PATH/bin/activate
   which python
-  
+  which pip
   pip install wheel
   pip install setuptools --upgrade
 	pip install autobahntestsuite
