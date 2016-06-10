@@ -13,7 +13,6 @@ env:
     - TEST_TYPE=Carthage
 install:
 - |
-  brew update
   if [ "$TEST_TYPE" = iOS ] || [ "$TEST_TYPE" = OSX ] || [ "$TEST_TYPE" = tvOS ]; then
     bundle install
   elif [ "$TEST_TYPE" = Carthage ]; then    
@@ -23,6 +22,7 @@ script:
 - |
   if [ "$TEST_TYPE" = iOS ]; then
     set -o pipefail
+    brew install python || brew upgrade python
     xcodebuild -project SocketRocket.xcodeproj -scheme "SocketRocket" -sdk iphonesimulator build test
   elif [ "$TEST_TYPE" = OSX ]; then
     set -o pipefail

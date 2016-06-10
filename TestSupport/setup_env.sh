@@ -20,7 +20,7 @@ else
   tar xvfz virtualenv.tar.gz
   
   pushd virtualenv-$VIRTUALENV_VERSION
-  python setup.py install --user
+  python setup.py install --user --prefix=
   popd
   
   popd
